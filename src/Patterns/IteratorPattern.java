@@ -7,10 +7,12 @@ package Patterns;
 interface Iterator {
     boolean hasNext();
     Object getNext();
+
 }
 
 
 class NameRepository  {
+
 
     public String names[] = {"Robert" , "John" ,"Julie" , "Lora"};
 
@@ -41,6 +43,7 @@ class NameRepository  {
 
 public class IteratorPattern {
     public static void main(String[] args) {
+        int tes;
         NameRepository repository = new NameRepository();
 
         for (Iterator iterator = repository.getIterator(); iterator.hasNext();) {
