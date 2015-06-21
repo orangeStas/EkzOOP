@@ -40,7 +40,17 @@ public class Matrix {
     }
 
     public void transpose(){
+        boolean[][] transpMatrix = new boolean[cols][rows];
 
+        for (int i = 0 ; i < rows ; i++) {
+            for (int j = 0; j < cols; j++) {
+                transpMatrix[j][i] = matrix[i][j];
+            }
+        }
+
+        rows = cols;
+        cols = matrix.length;
+        matrix = transpMatrix;
     }
 
     public Matrix multiple(Matrix matrix1) {
@@ -60,6 +70,43 @@ public class Matrix {
         return new Matrix(res);
 
     }
+
+
+}
+
+class TestMatrix {
+    public static void main(String[] args) {
+        Matrix matrix = new Matrix(3, 2);
+        matrix.setMatrixEl(0,0, false);
+        matrix.setMatrixEl(0,1, true);
+        matrix.setMatrixEl(1,0, false);
+        matrix.setMatrixEl(1,1, true);
+        matrix.setMatrixEl(2,0, false);
+        matrix.setMatrixEl(2,1, false);
+
+        for (int i =0 ; i < matrix.getRows(); i++)
+        {
+            for (int j = 0; j < matrix.getCols(); j++){
+                System.out.print(matrix.getElement(i, j) + " ");
+            }
+            System.out.println();
+        }
+
+        matrix.transpose();
+        System.out.println();
+
+        for (int i =0 ; i < matrix.getRows(); i++)
+        {
+            for (int j = 0; j < matrix.getCols(); j++){
+                System.out.print(matrix.getElement(i, j) + " ");
+            }
+            System.out.println();
+        }
+
+        System.out.println("wait");
+
+    }
+
 
 
 }

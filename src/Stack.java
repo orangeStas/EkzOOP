@@ -15,7 +15,7 @@ public class Stack {
     }
 
     public Byte pop(){
-        return bytes[size--];
+        return bytes[--size];
     }
 
     public void pushValues(Byte[] values) {
@@ -27,11 +27,25 @@ public class Stack {
     public Byte[] popValues(int length){
         Byte[] returnedBytes = new Byte[length];
         for (int i = 0; i < length ; i++ ) {
-            returnedBytes[i] = bytes[size--];
+            returnedBytes[i] = bytes[--size];
         }
         return  returnedBytes;
     }
 
 
 
+}
+
+class TestStack {
+    public static void main(String[] args) {
+        Stack stack = new Stack(5);
+
+        stack.push(new Byte("12"));
+        stack.push(new Byte("2"));
+        stack.push(new Byte("5"));
+
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+        System.out.println(stack.pop());
+    }
 }
