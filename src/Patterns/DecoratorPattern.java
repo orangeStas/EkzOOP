@@ -26,9 +26,7 @@ abstract class ShapeDecorator implements Shape {
         this.decoratedShape = decoratedShape;
     }
 
-    public void draw(){
-        decoratedShape.draw();
-    }
+    public abstract void draw();
 }
 
 class ShapeBlueDecorator extends ShapeDecorator {
@@ -46,7 +44,6 @@ class ShapeBlueDecorator extends ShapeDecorator {
     private void setBlueBorder(){
         System.out.println("Blue");
     }
-
 
 }
 
