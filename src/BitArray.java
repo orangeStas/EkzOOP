@@ -1,39 +1,40 @@
-import java.util.BitSet;
-
 /**
  * Created by OrangeUser on 6/17/2015.
  */
 public class BitArray {
 
-    private BitSet bitSet;
-    private int size;
+    private byte bitX8[] = null;
 
-    public BitArray(){
-        bitSet = new BitSet();
-        size = 0;
+    public BitArray(int size) {
+        bitX8 = new byte[size / 8 + (size % 8 == 0 ? 0 : 1)];
     }
 
-    public void add(boolean value) {
-        bitSet.set(size, value);
-        size++;
+    public boolean getBit(int pos) {
+        return (bitX8[pos / 8] & (1 << (pos % 8))) != 0;
     }
 
-    public int getSize(){
-        return size;
-    }
-
-    public void set(boolean value , int index) {
-        if (index <= size && index >= 0) {
-            bitSet.set(index, value);
+    public void setBit(int pos, boolean b) {
+        byte b8 = bitX8[pos / 8];
+        byte posBit = (byte) (1 << (pos % 8));
+        if (b) {
+            b8 |= posBit;
+        } else {
+            b8 &= (255 - posBit);
         }
+        bitX8[pos / 8] = b8;
     }
 
-    public boolean get(int index) {
-        if (index <= size && index >= 0)
-            return bitSet.get(index);
-        else
-            throw new IndexOutOfBoundsException();
+}
+
+class TestBit {
+    public static void main(String[] args) {
+        BitArray array = new BitArray(5);
+        array.setBit(0, true);
+        array.setBit(1, false);
+        array.setBit(2, true);
+        array.setBit(3, false);
+
+        System.out.println(array.getBit(0));
+
     }
-
-
 }

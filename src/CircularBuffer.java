@@ -27,10 +27,11 @@ public class CircularBuffer {
         Byte value = null;
         try {
             value = buffer[readerPos++];
+            buffer[readerPos-1] = null;
         } catch (Exception e){
             e.printStackTrace();
         }
-
+        readerPos = readerPos % buffer.length;
         return value;
     }
 }

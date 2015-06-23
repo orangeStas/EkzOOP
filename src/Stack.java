@@ -32,14 +32,11 @@ public class Stack {
         return  returnedBytes;
     }
 
-
-
 }
 
 class TestStack {
     public static void main(String[] args) {
         Stack stack = new Stack(5);
-
         stack.push(new Byte("12"));
         stack.push(new Byte("2"));
         stack.push(new Byte("5"));

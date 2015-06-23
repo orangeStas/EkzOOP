@@ -27,17 +27,7 @@ public class Main {
         dictionary.sort();
         System.out.println(dictionary.toString());
 
-        BitArray bitArray = new BitArray();
-        bitArray.add(true);
-        bitArray.add(false);
-        bitArray.add(false);
-        bitArray.add(false);
-        bitArray.add(true);
-        bitArray.set(true, 2);
 
-        for (int i = 0 ; i < bitArray.getSize(); i++) {
-            System.out.println(bitArray.get(i));
-        }
     }
 
 }

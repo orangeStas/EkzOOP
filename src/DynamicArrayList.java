@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by OrangeUser on 6/17/2015.
@@ -18,7 +16,7 @@ public class DynamicArrayList {
     }
 
     public void insertElement(int index, Object object) {
-        list.set(index, object);
+        list.add(index, object);
     }
 
     public Object getObject(int index) {
@@ -40,11 +38,9 @@ public class DynamicArrayList {
         return list.indexOf(object);
     }
 
-    public DynamicArrayList copyTo(){
-        DynamicArrayList resultList = new DynamicArrayList();
+    public void copyTo(DynamicArrayList resultList){
         if (list != null)
             resultList.list = list;
-        return resultList;
     }
 
     public void sort(){
@@ -66,6 +62,9 @@ class Test {
         }
 
         arrayList.sort();
+
+        DynamicArrayList list = new DynamicArrayList();
+        arrayList.copyTo(list);
 
         for (int i = 0; i < arrayList.getSize(); i++) {
             System.out.println(arrayList.getObject(i).toString());
